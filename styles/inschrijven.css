@@ -1,0 +1,86 @@
+/* Container van formulier */
+
+.formContainer {
+  width: 90%;
+  margin: 50px auto;
+}
+
+
+
+/* Hoofdformulier */
+
+.ticketForm {
+
+  background: #111;
+
+  padding: 50px;
+
+  border-radius: 30px;
+
+  max-width: 1000px;
+
+  margin: auto;
+
+}
+
+/* Titel */
+.ticketForm h1 {
+  color: #6BA368;
+  margin-bottom: 40px;
+  font-size: 3rem;
+}
+
+/* Twee inputs naast elkaar */
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+/* Styling van inputs */
+input,
+select {
+  width: 100%;
+  padding: 18px;
+  margin-bottom: 20px;
+  background: #1b1b1b;
+  border: none;
+  border-radius: 14px;
+  color: white;
+  font-size: 1rem;
+}
+
+/* Outline on klik */
+input:focus,
+select:focus {
+  outline: 2px solid #6BA368;
+}
+
+/* SubmitKnop */
+button {
+  width: 100%;
+  padding: 20px;
+  background: #6BA368;
+  border: none;
+  border-radius: 14px;
+  color: white;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: .2s;
+}
+
+
+
+/* Hover effect knop */
+button:hover {
+  background: #547f52;
+}
+
+/* Mobiele versie */
+@media(max-width:700px) {
+  .row {
+    grid-template-columns: 1fr;
+  }
+
+}
