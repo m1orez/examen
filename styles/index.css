@@ -1,0 +1,39 @@
+/* header styling */
+header {
+    background-image: url("../media/header-img.png");
+    background-color: #00000076;
+    height: 90vh;
+    background-position: center; 
+    background-repeat: no-repeat;
+    background-size: cover; 
+    background-blend-mode: color;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+header h2 {
+    color: white;
+    background-color: rgba(245, 222, 179, 0);
+}
+
+header h1 {
+    color: white;
+    background-color: rgba(255, 255, 255, 0);
+    font-size: 500%;
+    font-family: "BBH Bogle", sans-serif;
+}
+
+header #ticketButton {
+    background-color: #6BA368;
+    color: white;
+    text-decoration: none;
+    font-size: 220%;
+    padding: 15px 45px;
+    margin-top: 3%;
+    border-radius: 10px;
+}
+
+
