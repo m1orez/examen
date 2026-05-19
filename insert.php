@@ -30,6 +30,7 @@ $voornaam = $_POST["voornaam"];
 $achternaam = $_POST["achternaam"];
 $adres = $_POST["adres"];
 $woonplaats = $_POST["woonplaats"];
+$email = $_POST["email"];
 $telefoonnummer = $_POST["telefoonnummer"];
 $geboortedatum = $_POST["geboortedatum"];
 $geslacht = $_POST["geslacht"];
@@ -49,13 +50,14 @@ INSERT INTO inschrijvingen
     Achternaam,
     Adres,
     Woonplaats,
+    Email,
     Telefoonnummer,
     geboortedatum,
     Geslacht,
     Wachtwoord
 )
 
-VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
 ";
 
 $stmt = mysqli_prepare($conn, $sql);
@@ -63,12 +65,13 @@ $stmt = mysqli_prepare($conn, $sql);
 // Waarden koppelen aan query
 mysqli_stmt_bind_param(
     $stmt,
-    "ssssssss",
+    "sssssssss",
 
     $voornaam,
     $achternaam,
     $adres,
     $woonplaats,
+    $email,
     $telefoonnummer,
     $geboortedatum,
     $geslacht,

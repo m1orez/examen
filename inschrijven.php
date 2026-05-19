@@ -8,7 +8,7 @@
     <!-- algemene website styling -->
     <link rel="stylesheet" href="./styles/general.css" />
     <!-- pagina specifieke styling -->
-    <link rel="stylesheet" href="./styles/inschrijven.css" />
+    <link rel="stylesheet" href="./styles/inschrijven_login.css" />
 </head>
 <body>
     <nav>
@@ -31,6 +31,8 @@
             <input type="text" name="adres" placeholder="Adres" required>
             <!-- Woonplaats -->
             <input type="text" name="woonplaats" placeholder="Woonplaats" required>
+            <!-- Email -->
+            <input type="text" name="email" placeholder="Email" required>
             <!-- Telefoonnummer -->
             <input type="tel" name="telefoonnummer" placeholder="Telefoonnummer" maxlength="10" required>
             <!-- Geboortedatum + geslacht -->
