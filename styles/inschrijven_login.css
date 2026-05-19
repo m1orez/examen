@@ -68,13 +68,16 @@ button {
   font-weight: bold;
   cursor: pointer;
   transition: .2s;
+  margin-bottom: 10px;
 }
-
-
 
 /* Hover effect knop */
 button:hover {
   background: #547f52;
+}
+
+#adminLogin {
+  color: rgb(143, 143, 143);
 }
 
 /* Mobiele versie */

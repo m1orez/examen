@@ -20,16 +20,16 @@
   <body>
     <nav>
       <a id="active" href="./index.php">Home</a>
-      <a href="">Regels & informatie</a>
+      <a href="./info.php">Regels & informatie</a>
       <a class="navButtons" href="./inschrijven.php">Tickets</a>
-      <a class="navButtons" href="">Inloggen</a>
+      <a class="navButtons" href="./login.php">Inloggen</a>
     </nav>
     <header>
       <h2>FINALE WK 2026 START OVER:</h2>
       <!-- countdown tot evenement -->
         <h1 id="countdown"></h1>
         <!-- Inschrijf button -->
-      <a id="ticketButton" href="./inschrijven.html">Tickets</a>
+      <a id="ticketButton" href="./inschrijven.html">Haal hier je tickets</a>
     </header>
     <footer></footer>
   </body>

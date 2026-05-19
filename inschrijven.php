@@ -13,9 +13,9 @@
 <body>
     <nav>
         <a href="./index.php">Home</a>
-        <a href="">Regels & informatie</a>
+        <a href="./info.php">Regels & informatie</a>
         <a class="navButtons" href="./inschrijven.php">Tickets</a>
-        <a class="navButtons" href="">Inloggen</a>
+        <a class="navButtons" href="./login.php">Inloggen</a>
     </nav>
     <!-- Formulier container -->
     <section class="formContainer">
