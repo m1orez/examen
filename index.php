@@ -31,7 +31,9 @@
         <!-- Inschrijf button -->
       <a id="ticketButton" href="./inschrijven.html">Haal hier je tickets</a>
     </header>
-    <footer></footer>
+    <footer>
+
+    </footer>
   </body>
   <script src="./script/index.js"></script>
 </html>
