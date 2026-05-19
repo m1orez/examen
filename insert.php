@@ -1,8 +1,4 @@
 <?php
-
-ini_set('display_errors', 1);
-error_reporting(E_ALL);
-
 // Databaseverbinding
 $conn = mysqli_connect(
     "localhost",
@@ -14,6 +10,19 @@ $conn = mysqli_connect(
 // Controleren of verbinding werkt
 if (!$conn) {
     die("Connectie mislukt: " . mysqli_connect_error());
+}
+// check of er minder dan 1000 tickets zijn verkocht
+
+$countQuery = "SELECT MAX(inschrijving_ID) AS last_id FROM inschrijvingen";
+$countResult = mysqli_query($conn, $countQuery);
+$row = mysqli_fetch_assoc($countResult);
+
+if ($row['last_id'] >= 1000) {
+    echo "<script>
+        alert('Alle tickets zijn uitverkocht!');
+        window.history.back();
+    </script>";
+    exit();
 }
 
 // Formuliergegevens ophalen
@@ -66,13 +75,8 @@ mysqli_stmt_bind_param(
     $wachtwoord
 );
 
-
 // Query uitvoeren
-if (mysqli_stmt_execute($stmt)) {
-    echo "Registratie succesvol";
-} else {
-    echo "Fout: " . mysqli_error($conn);
-}
+mysqli_stmt_execute($stmt);
 
 // sluit connectie
 mysqli_stmt_close($stmt);
