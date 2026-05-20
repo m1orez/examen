@@ -20,7 +20,7 @@
   <body>
     <nav>
       <a id="active" href="./index.php">Home</a>
-      <a href="./info.php">Regels & informatie</a>
+      <a href="./info.php">Informatie</a>
       <a class="navButtons" href="./inschrijven.php">Tickets</a>
       <a class="navButtons" href="./login.php">Inloggen</a>
     </nav>

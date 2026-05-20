@@ -1,48 +1,56 @@
 <?php
-// Databaseverbinding
-$conn = mysqli_connect(
-    "localhost",
-    "Admin_086212",
-    "Admin_086212",
-    "Examen_086212"
-);
+session_start();
+require_once "config.php";
 
-// Controleren of verbinding werkt
-if (!$conn) {
-    die("Connectie mislukt: " . mysqli_connect_error());
-}
-// check of er minder dan 1000 tickets zijn verkocht
-
-$countQuery = "SELECT MAX(inschrijving_ID) AS last_id FROM inschrijvingen";
-$countResult = mysqli_query($conn, $countQuery);
-$row = mysqli_fetch_assoc($countResult);
-
-if ($row['last_id'] >= 1000) {
-    echo "<script>
-        alert('Alle tickets zijn uitverkocht!');
-        window.history.back();
-    </script>";
+if ($_SERVER["REQUEST_METHOD"] !== "POST") {
+    header("Location: ../inschrijven.php");
     exit();
 }
 
-// Formuliergegevens ophalen
-$voornaam = $_POST["voornaam"];
-$achternaam = $_POST["achternaam"];
-$adres = $_POST["adres"];
-$woonplaats = $_POST["woonplaats"];
-$email = $_POST["email"];
-$telefoonnummer = $_POST["telefoonnummer"];
-$geboortedatum = $_POST["geboortedatum"];
-$geslacht = $_POST["geslacht"];
-
-// Wachtwoord hashen
-$wachtwoord = password_hash(
-    $_POST["wachtwoord"],
-    PASSWORD_DEFAULT
-);
+$voornaam = trim($_POST["voornaam"] ?? "");
+$achternaam = trim($_POST["achternaam"] ?? "");
+$adres = trim($_POST["adres"] ?? "");
+$woonplaats = trim($_POST["woonplaats"] ?? "");
+$email = trim($_POST["email"] ?? "");
+$telefoonnummer = trim($_POST["telefoonnummer"] ?? "");
+$geboortedatum = $_POST["geboortedatum"] ?? "";
+$geslacht = $_POST["geslacht"] ?? "";
+$wachtwoord = $_POST["wachtwoord"] ?? "";
 
 
-// SQL query voorbereiden
+/* Max 1000 accounts */
+
+$countSql = "SELECT COUNT(*) AS totaal FROM inschrijvingen";
+$countResult = mysqli_query($conn, $countSql);
+$count = mysqli_fetch_assoc($countResult);
+
+if ($count["totaal"] >= 1000) {
+    die("Inschrijven is gesloten. Er zijn al 1000 deelnemers.");
+}
+
+
+/* Check dubbele email */
+
+$checkSql = "SELECT inschrijving_ID FROM inschrijvingen WHERE Email = ?";
+$checkStmt = mysqli_prepare($conn, $checkSql);
+
+mysqli_stmt_bind_param($checkStmt, "s", $email);
+mysqli_stmt_execute($checkStmt);
+
+$checkResult = mysqli_stmt_get_result($checkStmt);
+
+if (mysqli_num_rows($checkResult) > 0) {
+    die("Er bestaat al een account met dit emailadres.");
+}
+
+
+/* Hash wachtwoord */
+
+$hashedPassword = password_hash($wachtwoord, PASSWORD_DEFAULT);
+
+
+/* query */
+
 $sql = "
 INSERT INTO inschrijvingen
 (
@@ -52,21 +60,25 @@ INSERT INTO inschrijvingen
     Woonplaats,
     Email,
     Telefoonnummer,
-    geboortedatum,
+    Geboortedatum,
     Geslacht,
     Wachtwoord
 )
-
-VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+VALUES
+(
+    ?,?,?,?,?,?,?,?,?
+)
 ";
 
 $stmt = mysqli_prepare($conn, $sql);
 
-// Waarden koppelen aan query
+if (!$stmt) {
+    die("SQL fout: " . mysqli_error($conn));
+}
+
 mysqli_stmt_bind_param(
     $stmt,
     "sssssssss",
-
     $voornaam,
     $achternaam,
     $adres,
@@ -75,13 +87,20 @@ mysqli_stmt_bind_param(
     $telefoonnummer,
     $geboortedatum,
     $geslacht,
-    $wachtwoord
+    $hashedPassword
 );
 
-// Query uitvoeren
-mysqli_stmt_execute($stmt);
+if (mysqli_stmt_execute($stmt)) {
 
-// sluit connectie
-mysqli_stmt_close($stmt);
-mysqli_close($conn);
+    $newUserId = mysqli_insert_id($conn);
+
+    $_SESSION["user_id"] = $newUserId;
+    $_SESSION["voornaam"] = $voornaam;
+    $_SESSION["email"] = $email;
+
+    header("Location: ../dashboard.php");
+    exit();
+}
+
+die("Registratie mislukt.");
 ?>

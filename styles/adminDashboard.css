@@ -1,0 +1,119 @@
+/* Container */
+
+.formContainer {
+  width: 90%;
+  margin: 50px auto;
+}
+
+/* Main card */
+
+.ticketForm {
+  background: #111;
+  padding: 50px;
+  border-radius: 30px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* Title */
+
+.ticketForm h1 {
+  color: #6ba368;
+  margin-bottom: 40px;
+  font-size: 3rem;
+}
+
+/* Stats */
+
+.adminStats {
+  background: #1b1b1b;
+  padding: 20px;
+  border-radius: 14px;
+  margin-bottom: 30px;
+  color: white;
+  font-size: 1.2rem;
+}
+
+.adminStats strong {
+  color: #6ba368;
+}
+
+/* Table */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  color: white;
+}
+
+/* Header */
+
+th {
+  background: #1b1b1b;
+  color: #6ba368;
+  text-align: left;
+  padding: 20px;
+}
+
+/* Cells */
+
+td {
+  padding: 20px;
+  border-bottom: 1px solid #333;
+}
+
+/* Hover */
+
+tr:hover {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+/* Buttons */
+
+.actionBtn {
+  display: inline-block;
+  padding: 10px 16px;
+  background: #6ba368;
+  color: white;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: 0.2s;
+  margin-right: 10px;
+}
+
+.actionBtn:hover {
+  background: #547f52;
+}
+
+/* Delete */
+
+.deleteBtn {
+  background: rgb(170, 50, 50);
+}
+
+.deleteBtn:hover {
+  background: rgb(130, 40, 40);
+}
+
+/* Mobile */
+
+@media (max-width: 700px) {
+  table,
+  thead,
+  tbody,
+  tr,
+  th,
+  td {
+    display: block;
+  }
+
+  th {
+    display: none;
+  }
+
+  td {
+    background: #1b1b1b;
+    margin-bottom: 10px;
+    border-radius: 10px;
+  }
+}

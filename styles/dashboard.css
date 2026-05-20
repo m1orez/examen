@@ -96,6 +96,10 @@ button:hover {
   background: #547f52;
 }
 
+#uitschrijfButton {
+    background:#a33;
+}
+
 /* opsla knop */
 .hidden {
   display: none;
@@ -139,7 +143,4 @@ button:hover {
   .ticketForm h1 {
     font-size: 2rem;
   }
-}
-#removeAccount {
-    background:#a33;
 }

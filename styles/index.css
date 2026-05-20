@@ -2,7 +2,6 @@
 
 header {
     height: 100vh;
-
     background:
         linear-gradient(
             rgba(0,0,0,.55),
@@ -12,12 +11,10 @@ header {
 
     background-position:center;
     background-size:cover;
-
     display:flex;
     flex-direction:column;
     justify-content:center;
     align-items:center;
-
     text-align:center;
     gap:20px;
 }
@@ -37,14 +34,9 @@ header h2 {
 
 header h1 {
     color:white;
-
     font-size:clamp(4rem,10vw,8rem);
-
     font-family:"BBH Bogle", sans-serif;
-
-    text-shadow:
-        0 0 15px rgba(255,255,255,.2);
-
+    text-shadow:0 0 15px rgba(255,255,255,.2);
     line-height:1;
 }
 
@@ -53,34 +45,24 @@ header h1 {
 
 #ticketButton {
     background:#6BA368;
-
     color:white;
     text-decoration:none;
-
     padding:
         18px 45px;
-
     border-radius:14px;
-
     font-size:1.4rem;
     font-weight:bold;
-
     transition:
         transform .25s,
         background .25s,
         box-shadow .25s;
-
     box-shadow:
         0 10px 25px rgba(107,163,104,.25);
 }
-
 #ticketButton:hover {
-
     background:#557f54;
-
     transform:
         translateY(-4px);
-
     box-shadow:
         0 18px 35px rgba(107,163,104,.4);
 }

@@ -23,33 +23,21 @@ if (!$user) {
 ?>
 
 <!DOCTYPE html>
-<html lang="nl">
+<html lang="eng">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
+    <title>WK de Kup | Dashboard</title>
 
     <link rel="stylesheet" href="./styles/general.css">
     <link rel="stylesheet" href="./styles/dashboard.css">
 </head>
 
 <body>
-
-    <nav>
-        <a href="index.php">Home</a>
-        <a href="info.php">Info</a>
-        <a href="dashboard.php">Dashboard</a>
-        <a href="logout.php">Uitloggen</a>
-    </nav>
-
-
     <section class="formContainer">
-
         <form id="dashboardForm" class="ticketForm" method="POST" action="./script/dashboard_process.php">
-
             <h1>Mijn gegevens</h1>
-
 
             <?php if (isset($_GET["success"])): ?>
                 <p class="success">
@@ -57,40 +45,22 @@ if (!$user) {
                 </p>
             <?php endif; ?>
 
-
             <input type="text" name="voornaam" value="<?= htmlspecialchars($user["Voornaam"]) ?>" readonly>
-
             <input type="text" name="achternaam" value="<?= htmlspecialchars($user["Achternaam"]) ?>" readonly>
-
             <input type="text" name="adres" value="<?= htmlspecialchars($user["Adres"]) ?>" readonly>
-
             <input type="text" name="woonplaats" value="<?= htmlspecialchars($user["Woonplaats"]) ?>" readonly>
-
             <input type="email" name="email" value="<?= htmlspecialchars($user["Email"]) ?>" readonly>
-
             <input type="text" name="telefoonnummer" value="<?= htmlspecialchars($user["Telefoonnummer"]) ?>" readonly>
 
-
             <!-- Niet bewerkbaar -->
-
             <input type="text" value="<?= htmlspecialchars($user["geboortedatum"]) ?>" readonly class="readonly">
-
             <input type="text" value="<?= htmlspecialchars($user["Geslacht"]) ?>" readonly class="readonly">
 
+            <button type="button" id="editBtn">Bewerken</button>
 
-            <button type="button" id="editBtn">
-                Bewerken
-            </button>
+            <button type="submit" id="saveBtn" class="hidden">Opslaan</button>
 
-
-            <button type="submit" id="saveBtn" class="hidden">
-                Opslaan
-            </button>
-
-
-            <button type="button" onclick="removeAccount()" style="background:#aa3333;">
-                Uitschrijven
-            </button>
+            <button id="uitschrijfButton" type="button" onclick="removeAccount()">Uitschrijven</button>
         </form>
     </section>
 </body>

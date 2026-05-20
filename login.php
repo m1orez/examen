@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +10,7 @@
     <!-- pagina specifieke styling -->
     <link rel="stylesheet" href="./styles/inschrijven_login.css">
 </head>
+
 <body>
     <nav>
         <a href="./index.php">Home</a>
@@ -17,13 +19,14 @@
         <a class="navButtons" href="./login.php">Inloggen</a>
     </nav>
     <section class="formContainer">
-        <form action="./script/login_process.php" method="POST" class="ticketForm">
-            <h1>Log in</h1>
-            <input type="text" name="email" placeholder="Email" required>
+        <form class="ticketForm" action="./script/login_process.php" method="POST">
+            <h1>Inloggen</h1>
+            <input type="email" name="email" placeholder="Email" required>
             <input type="password" name="wachtwoord" placeholder="Wachtwoord" required>
-            <button type="submit">Log in</button>
-            <a id="adminLogin" href="./AdminLogin.php">Admin login</a>
+            <button type="submit">Inloggen</button>
+            <a href="./adminLogin.php" id="adminLogin">Admin login</a>
         </form>
     </section>
 </body>
+
 </html>

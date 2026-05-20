@@ -10,7 +10,6 @@
     <!-- pagina specifieke styling -->
     <link rel="stylesheet" href="./styles/inschrijven_login.css" />
 </head>
-
 <body>
     <nav>
         <a href="./index.php">Home</a>
@@ -20,39 +19,36 @@
     </nav>
     <!-- Formulier container -->
     <section class="formContainer">
-        <!-- Inschrijfformulier -->
-        <form action="./script/insert.php" method="POST" class="ticketForm">
+        <form class="ticketForm" action="./script/insert.php" method="POST">
             <h1>Inschrijven</h1>
             <div class="row">
-                <!-- naam -->
                 <input type="text" name="voornaam" placeholder="Voornaam" required>
                 <input type="text" name="achternaam" placeholder="Achternaam" required>
             </div>
-            <!-- Adres -->
             <input type="text" name="adres" placeholder="Adres" required>
-            <!-- Woonplaats -->
             <input type="text" name="woonplaats" placeholder="Woonplaats" required>
-            <!-- Email -->
-            <input type="text" name="email" placeholder="Email" required>
-            <!-- Telefoonnummer -->
-            <input type="tel" name="telefoonnummer" placeholder="Telefoonnummer" maxlength="10" required>
-            <!-- Geboortedatum + geslacht -->
-            <div class="row">
-                <input type="date" name="geboortedatum" required>
-                <select name="geslacht" required>
-                    <option value="">Geslacht</option>
-                    <option>M</option>
-                    <option>V</option>
-                    <option>X</option>
-                </select>
-            </div>
-            <!-- Wachtwoord -->
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="text" name="telefoonnummer" placeholder="Telefoonnummer" required>
+            <input type="date" name="geboortedatum" required>
+
+            <select name="geslacht" required>
+                <option value="">
+                    Kies geslacht
+                </option>
+                <option value="Man">Man</option>
+                <option value="Vrouw">Vrouw</option>
+                <option value="Anders">Anders</option>
+            </select>
+
             <input type="password" name="wachtwoord" placeholder="Wachtwoord" required>
-            <!-- Submitknop -->
-            <button>Registreren</button>
+            <button type="submit">Account aanmaken</button>
+            <p id="adminLogin">
+                Heb je al een account?
+                <a href="login.php">
+                    Log hier in
+                </a>
+            </p>
         </form>
-    </section>
-    </section>
 </body>
 
 </html>
