@@ -20,15 +20,22 @@
 
 <body>
   <nav>
-    <a id="active" href="./index.php">Home</a>
-    <a href="./info.php">Informatie</a>
-    <a class="navButtons" href="./inschrijven.php">Tickets</a>
-    <a class="navButtons" href="./login.php">Inloggen</a>
+    <button id="hamburger">
+      ☰
+    </button>
+    <div class="navLinks">
+      <a href="./index.php">Home</a>
+      <a href="./info.php">Informatie</a>
+      <a class="navButtons" href="./inschrijven.php">Tickets</a>
+      <a class="navButtons" href="./login.php">Inloggen
+      </a>
+    </div>
   </nav>
   <header>
     <h2>FINALE WK 2026 START OVER:</h2>
     <!-- countdown tot evenement -->
     <h1 id="countdown"></h1>
+    <h2>Zondag 19 Juli 2026, 19:00</h2>
     <!-- Inschrijf button -->
     <a id="ticketButton" href="./inschrijven.html">Haal hier je tickets</a>
   </header>
@@ -97,6 +104,6 @@
     </details>
   </section>
 </body>
-<script src="./script/index.js"></script>
-
+  <script src="./script/index.js"></script>
+  <script src="./script/nav.js"></script>
 </html>

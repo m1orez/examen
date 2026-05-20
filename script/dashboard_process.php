@@ -3,53 +3,52 @@
 require_once "auth.php";
 require_once "config.php";
 
+
+/* Alleen POST verzoeken toestaan */
 if ($_SERVER["REQUEST_METHOD"] !== "POST") {
     header("Location: ../dashboard.php");
     exit();
 }
 
+
+/* Ingelogde gebruiker */
 $user_id = $_SESSION["user_id"];
 
-/* editbare inputs only */
 
-$voornaam =
-    trim($_POST["voornaam"] ?? "");
+/* Bewerkbare velden */
+$voornaam = trim($_POST["voornaam"] ?? "");
+$achternaam = trim($_POST["achternaam"] ?? "");
 
-$achternaam =
-    trim($_POST["achternaam"] ?? "");
+$adres = trim($_POST["adres"] ?? "");
+$woonplaats = trim($_POST["woonplaats"] ?? "");
 
-$adres =
-    trim($_POST["adres"] ?? "");
+$email = trim($_POST["email"] ?? "");
+$telefoonnummer = trim($_POST["telefoonnummer"] ?? "");
 
-$woonplaats =
-    trim($_POST["woonplaats"] ?? "");
 
-$email =
-    trim($_POST["email"] ?? "");
-
-$telefoonnummer =
-    trim($_POST["telefoonnummer"] ?? "");
-
+/* Update gebruiker */
 $sql = "
 UPDATE inschrijvingen
 SET
-Voornaam = ?,
-Achternaam = ?,
-Adres = ?,
-Woonplaats = ?,
-Email = ?,
-Telefoonnummer = ?
+    Voornaam = ?,
+    Achternaam = ?,
+    Adres = ?,
+    Woonplaats = ?,
+    Email = ?,
+    Telefoonnummer = ?
 WHERE inschrijving_ID = ?
 ";
 
-$stmt =
-    mysqli_prepare($conn,$sql);
+$stmt = mysqli_prepare($conn, $sql);
 
+
+/* Controle SQL */
 if (!$stmt) {
-    die(
-        "SQL fout: ". mysqli_error($conn));
+    die("SQL fout: " . mysqli_error($conn));
 }
 
+
+/* Parameters koppelen */
 mysqli_stmt_bind_param(
     $stmt,
     "ssssssi",
@@ -62,17 +61,19 @@ mysqli_stmt_bind_param(
     $user_id
 );
 
-if (
-    mysqli_stmt_execute($stmt)
-) {
+
+/* Uitvoeren */
+if (mysqli_stmt_execute($stmt)) {
+
     mysqli_stmt_close($stmt);
     mysqli_close($conn);
-    header(
-        "Location: ../dashboard.php?success=1"
-    );
+
+    header("Location: ../dashboard.php?success=1");
     exit();
-} else {
-    die(
-        "Opslaan mislukt: " . mysqli_error($conn));
 }
+
+
+/* Foutmelding */
+die("Opslaan mislukt: " . mysqli_error($conn));
+
 ?>

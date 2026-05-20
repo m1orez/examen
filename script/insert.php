@@ -1,11 +1,18 @@
 <?php
+
 session_start();
 require_once "config.php";
+
+
+/* Alleen POST requests toestaan */
 
 if ($_SERVER["REQUEST_METHOD"] !== "POST") {
     header("Location: ../inschrijven.php");
     exit();
 }
+
+
+/* Formuliergegevens ophalen */
 
 $voornaam = trim($_POST["voornaam"] ?? "");
 $achternaam = trim($_POST["achternaam"] ?? "");
@@ -18,9 +25,10 @@ $geslacht = $_POST["geslacht"] ?? "";
 $wachtwoord = $_POST["wachtwoord"] ?? "";
 
 
-/* Max 1000 accounts */
+/* Controle maximaal 1000 inschrijvingen */
 
 $countSql = "SELECT COUNT(*) AS totaal FROM inschrijvingen";
+
 $countResult = mysqli_query($conn, $countSql);
 $count = mysqli_fetch_assoc($countResult);
 
@@ -29,27 +37,46 @@ if ($count["totaal"] >= 1000) {
 }
 
 
-/* Check dubbele email */
+/* Controle op dubbele email */
 
-$checkSql = "SELECT inschrijving_ID FROM inschrijvingen WHERE Email = ?";
-$checkStmt = mysqli_prepare($conn, $checkSql);
+$checkSql =
+    "SELECT inschrijving_ID
+FROM inschrijvingen
+WHERE Email = ?";
 
-mysqli_stmt_bind_param($checkStmt, "s", $email);
+$checkStmt =
+    mysqli_prepare($conn, $checkSql);
+
+mysqli_stmt_bind_param(
+    $checkStmt,
+    "s",
+    $email
+);
+
 mysqli_stmt_execute($checkStmt);
 
-$checkResult = mysqli_stmt_get_result($checkStmt);
+$checkResult =
+    mysqli_stmt_get_result($checkStmt);
 
-if (mysqli_num_rows($checkResult) > 0) {
-    die("Er bestaat al een account met dit emailadres.");
+if (
+    mysqli_num_rows($checkResult) > 0
+) {
+    die(
+        "Er bestaat al een account met dit emailadres."
+    );
 }
 
 
-/* Hash wachtwoord */
+/* Wachtwoord hashen */
 
-$hashedPassword = password_hash($wachtwoord, PASSWORD_DEFAULT);
+$hashedPassword =
+    password_hash(
+        $wachtwoord,
+        PASSWORD_DEFAULT
+    );
 
 
-/* query */
+/* Nieuwe gebruiker toevoegen */
 
 $sql = "
 INSERT INTO inschrijvingen
@@ -70,11 +97,25 @@ VALUES
 )
 ";
 
-$stmt = mysqli_prepare($conn, $sql);
+$stmt =
+    mysqli_prepare(
+        $conn,
+        $sql
+    );
+
+
+/* SQL fout controleren */
 
 if (!$stmt) {
-    die("SQL fout: " . mysqli_error($conn));
+    die(
+        "SQL fout: "
+        .
+        mysqli_error($conn)
+    );
 }
+
+
+/* Waarden koppelen */
 
 mysqli_stmt_bind_param(
     $stmt,
@@ -90,17 +131,43 @@ mysqli_stmt_bind_param(
     $hashedPassword
 );
 
-if (mysqli_stmt_execute($stmt)) {
 
-    $newUserId = mysqli_insert_id($conn);
+/* Query uitvoeren */
 
-    $_SESSION["user_id"] = $newUserId;
-    $_SESSION["voornaam"] = $voornaam;
-    $_SESSION["email"] = $email;
+if (
+    mysqli_stmt_execute($stmt)
+) {
 
-    header("Location: ../dashboard.php");
+
+    /* Nieuwe gebruiker ID ophalen */
+
+    $newUserId =
+        mysqli_insert_id($conn);
+
+
+    /* Sessie starten */
+
+    $_SESSION["user_id"] =
+        $newUserId;
+    $_SESSION["voornaam"] =
+        $voornaam;
+    $_SESSION["email"] =
+        $email;
+
+    /* Doorsturen naar dashboard */
+    header(
+        "Location:
+        ../dashboard.php"
+    );
     exit();
+
 }
 
-die("Registratie mislukt.");
+
+/* Foutmelding */
+
+die(
+    "Registratie mislukt."
+);
+
 ?>

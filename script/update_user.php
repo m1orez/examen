@@ -18,7 +18,7 @@ $geboortedatum = $_POST["geboortedatum"];
 $geslacht = $_POST["geslacht"];
 
 
-/* Prevent duplicate email */
+/* voorkomt dubbele email */
 
 $checkSql = "
 SELECT inschrijving_ID

@@ -1,191 +1,243 @@
-/* HEADER */
+/* Header */
 
 header {
-  height: 100vh;
-  background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),
-    url("../media/header-img.png");
-
-  background-position: center;
-  background-size: cover;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  gap: 20px;
-}
-
-/* small text */
-
-header h2 {
-  color: white;
-  letter-spacing: 3px;
-  font-size: 1rem;
-  opacity: 0.9;
-}
-
-/* countdown */
-
-header h1 {
-  color: white;
-  font-size: clamp(4rem, 10vw, 8rem);
-  font-family: "BBH Bogle", sans-serif;
-  text-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
-  line-height: 1;
-}
-
-/* ticket button */
-
-#ticketButton {
-  background: #6ba368;
-  color: white;
-  text-decoration: none;
-  padding: 18px 45px;
-  border-radius: 14px;
-  font-size: 1.4rem;
-  font-weight: bold;
-  transition: transform 0.25s, background 0.25s, box-shadow 0.25s;
-  box-shadow: 0 10px 25px rgba(107, 163, 104, 0.25);
-}
-#ticketButton:hover {
-  background: #557f54;
-  transform: translateY(-4px);
-  box-shadow: 0 18px 35px rgba(107, 163, 104, 0.4);
-}
-
-.regelsSection {
+    height: 100vh;
+    background: linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.55)), url("../media/header-img.png");
+    background-position: center;
+    background-size: cover;
+  
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  
+    text-align: center;
+    gap: 20px;
+    padding: 20px;
+  }
+  
+  
+  /* Kleine tekst */
+  
+  header h2 {
+    color: white;
+    font-size: 1rem;
+    letter-spacing: 3px;
+    opacity: .9;
+  }
+  
+  
+  /* Grote titel */
+  
+  header h1 {
+    color: white;
+    font-size: clamp(4rem,10vw,8rem);
+    font-family: "BBH Bogle", sans-serif;
+    line-height: 1;
+    text-shadow: 0 0 15px rgba(255,255,255,.2);
+  }
+  
+  
+  /* Ticket knop */
+  
+  #ticketButton {
+    background: #6ba368;
+    color: white;
+    text-decoration: none;
+  
+    padding: 18px 45px;
+    border-radius: 14px;
+  
+    font-size: 1.4rem;
+    font-weight: bold;
+  
+    transition: transform .25s, background .25s, box-shadow .25s;
+    box-shadow: 0 10px 25px rgba(107,163,104,.25);
+  }
+  
+  
+  #ticketButton:hover {
+    background: #557f54;
+    transform: translateY(-4px);
+    box-shadow: 0 18px 35px rgba(107,163,104,.4);
+  }
+  
+  
+  /* Regels sectie */
+  
+  .regelsSection {
     width: 90%;
     max-width: 1200px;
+  
     margin: 50px auto;
-
-    background: #111;
     padding: 50px;
+  
+    background: #111;
     border-radius: 30px;
-}
-
-
-.regelsSection h1 {
-    color: #6BA368;
+  }
+  
+  
+  /* Titel */
+  
+  .regelsSection h1 {
+    color: #6ba368;
     font-size: 3rem;
-    margin-bottom: 40px;
     text-align: center;
-}
-
-
-
-/* Dropdown blok */
-
-.regelBlok {
+    margin-bottom: 40px;
+  }
+  
+  
+  /* Dropdown blok */
+  
+  .regelBlok {
     background: #1b1b1b;
-
     border-radius: 20px;
-
+  
     margin-bottom: 20px;
-
     overflow: hidden;
-}
-
-
-
-/* Klikbare titel */
-
-.regelBlok summary {
+  }
+  
+  
+  /* Klikbare titel */
+  
+  .regelBlok summary {
     padding: 25px;
-
-    color: #6BA368;
-
+  
+    color: #6ba368;
     font-size: 1.3rem;
-
     font-weight: bold;
-
+  
     cursor: pointer;
-
     list-style: none;
-}
-
-
-.regelBlok summary::-webkit-details-marker {
+  }
+  
+  
+  .regelBlok summary::-webkit-details-marker {
     display: none;
-}
-
-
-
-/* Plus/min icoon */
-
-.regelBlok summary::after {
-
+  }
+  
+  
+  /* Plus/min icoon */
+  
+  .regelBlok summary::after {
     content: "+";
-
     float: right;
-
     transition: .2s;
-}
-
-
-.regelBlok[open] summary::after {
-
+  }
+  
+  
+  .regelBlok[open] summary::after {
     content: "-";
-
-}
-
-
-
-/* Content */
-
-.regelBlok p,
-.regelBlok ul {
-
+  }
+  
+  
+  /* Inhoud */
+  
+  .regelBlok p,
+  .regelBlok ul {
     color: white;
-
-    padding:
-    0 25px 25px;
-
+    padding: 0 25px 25px;
     line-height: 1.8;
-}
-
-
-.regelBlok li {
-
+  }
+  
+  
+  .regelBlok li {
     margin-bottom: 10px;
-
-}
-
-
-
-/* Hover */
-
-.regelBlok:hover {
-
+  }
+  
+  
+  /* Hover */
+  
+  .regelBlok:hover {
     background: #222;
-
-}
-
-
-
-/* Mobile */
-
-@media(max-width:700px){
-
+  }
+  
+  
+  /* Tablet */
+  
+  @media (max-width:900px) {
+  
+    header h1 {
+      font-size: clamp(3rem,8vw,6rem);
+    }
+  
     .regelsSection {
-
-        padding: 30px;
-
+      padding: 35px;
     }
-
-
+  
     .regelsSection h1 {
-
-        font-size: 2rem;
-
+      font-size: 2.5rem;
     }
-
-
+  
+  }
+  
+  
+  /* Mobiel */
+  
+  @media (max-width:700px) {
+  
+    header {
+      padding: 15px;
+    }
+  
+    header h2 {
+      font-size: .9rem;
+    }
+  
+    header h1 {
+      font-size: clamp(2.5rem,12vw,4rem);
+    }
+  
+    #ticketButton {
+      width: 100%;
+      max-width: 300px;
+  
+      padding: 16px;
+      font-size: 1.1rem;
+    }
+  
+    .regelsSection {
+      width: 95%;
+      padding: 25px;
+      border-radius: 20px;
+    }
+  
+    .regelsSection h1 {
+      font-size: 2rem;
+    }
+  
     .regelBlok summary {
-
-        font-size: 1rem;
-
-        padding: 20px;
-
+      padding: 20px;
+      font-size: 1rem;
     }
-
-}
+  
+    .regelBlok p,
+    .regelBlok ul {
+      padding: 0 20px 20px;
+    }
+  
+  }
+  
+  
+  /* Kleine telefoons */
+  
+  @media (max-width:400px) {
+  
+    header h1 {
+      font-size: 2rem;
+    }
+  
+    header h2 {
+      font-size: .8rem;
+    }
+  
+    #ticketButton {
+      font-size: 1rem;
+      padding: 14px;
+    }
+  
+    .regelsSection h1 {
+      font-size: 1.6rem;
+    }
+  
+  }

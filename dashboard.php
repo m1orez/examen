@@ -29,11 +29,11 @@ if (!$user) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WK de Kup | Dashboard</title>
-
+    <!-- algemene styling -->
     <link rel="stylesheet" href="./styles/general.css">
+    <!-- pagina specifieke styling -->
     <link rel="stylesheet" href="./styles/dashboard.css">
 </head>
-
 <body>
     <nav>
         <a href="./index.php">Home</a>
@@ -47,7 +47,7 @@ if (!$user) {
                     Gegevens opgeslagen
                 </p>
             <?php endif; ?>
-
+            <!-- bewerkbare inputs -->
             <input type="text" name="voornaam" value="<?= htmlspecialchars($user["Voornaam"]) ?>" readonly>
             <input type="text" name="achternaam" value="<?= htmlspecialchars($user["Achternaam"]) ?>" readonly>
             <input type="text" name="adres" value="<?= htmlspecialchars($user["Adres"]) ?>" readonly>

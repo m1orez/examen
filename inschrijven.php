@@ -11,12 +11,18 @@
     <link rel="stylesheet" href="./styles/inschrijven_login.css" />
 </head>
 <body>
-    <nav>
-        <a href="./index.php">Home</a>
-        <a href="./info.php">Regels & informatie</a>
-        <a class="navButtons" href="./inschrijven.php">Tickets</a>
-        <a class="navButtons" href="./login.php">Inloggen</a>
-    </nav>
+<nav>
+    <button id="hamburger">
+      ☰
+    </button>
+    <div class="navLinks">
+      <a href="./index.php">Home</a>
+      <a href="./info.php">Informatie</a>
+      <a class="navButtons" href="./inschrijven.php">Tickets</a>
+      <a class="navButtons" href="./login.php">Inloggen
+      </a>
+    </div>
+  </nav>
     <!-- Formulier container -->
     <section class="formContainer">
         <form class="ticketForm" action="./script/insert.php" method="POST">
@@ -50,5 +56,5 @@
             </p>
         </form>
 </body>
-
+    <script src="./script/nav.js"></script>
 </html>

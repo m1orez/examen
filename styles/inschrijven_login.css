@@ -1,13 +1,27 @@
-/* Container van formulier */
+/* Voorkom overflow */
+* {
+  box-sizing: border-box;
+}
 
+/* Achtergrond */
+body {
+  min-height: 100vh;
+  background: linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.55)), url("../media/header-img.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: black;
+  margin: 0;
+}
+
+/* Container */
 .formContainer {
   width: 90%;
+  max-width: 1100px;
   margin: 50px auto;
 }
 
-
-
-/* Hoofdformulier */
+/* Formulier */
 .ticketForm {
   background: #111;
   padding: 50px;
@@ -18,19 +32,20 @@
 
 /* Titel */
 .ticketForm h1 {
-  color: #6BA368;
-  margin-bottom: 40px;
+  color: #6ba368;
   font-size: 3rem;
+  text-align: center;
+  margin-bottom: 40px;
 }
 
-/* Twee inputs naast elkaar */
+/* Twee kolommen */
 .row {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 20px;
 }
 
-/* Styling van inputs */
+/* Inputs */
 input,
 select {
   width: 100%;
@@ -43,17 +58,17 @@ select {
   font-size: 1rem;
 }
 
-/* Outline on klik */
+/* Focus effect */
 input:focus,
 select:focus {
-  outline: 2px solid #6BA368;
+  outline: 2px solid #6ba368;
 }
 
-/* SubmitKnop */
+/* Knoppen */
 button {
   width: 100%;
   padding: 20px;
-  background: #6BA368;
+  background: #6ba368;
   border: none;
   border-radius: 14px;
   color: white;
@@ -64,19 +79,64 @@ button {
   margin-bottom: 10px;
 }
 
-/* Hover effect knop */
 button:hover {
   background: #547f52;
 }
 
+/* Admin tekst */
 #adminLogin {
-  color: rgb(143, 143, 143);
+  color: rgb(143,143,143);
+  text-align: center;
 }
 
-/* Mobiele versie */
-@media(max-width:700px) {
+/* Tablet */
+@media (max-width:900px) {
+  .ticketForm {
+    padding: 35px;
+  }
+
   .row {
     grid-template-columns: 1fr;
   }
+}
 
+/* Mobiel */
+@media (max-width:600px) {
+  .formContainer {
+    width: 95%;
+    margin: 20px auto;
+  }
+
+  .ticketForm {
+    padding: 25px;
+    border-radius: 20px;
+  }
+
+  .ticketForm h1 {
+    font-size: 2rem;
+  }
+
+  input,
+  select,
+  button {
+    padding: 16px;
+    font-size: .95rem;
+  }
+}
+
+/* Kleine telefoons */
+@media (max-width:400px) {
+  .ticketForm {
+    padding: 20px;
+  }
+
+  .ticketForm h1 {
+    font-size: 1.6rem;
+  }
+
+  input,
+  select,
+  button {
+    font-size: .9rem;
+  }
 }

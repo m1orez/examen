@@ -1,119 +1,194 @@
 /* Container */
 
 .formContainer {
-  width: 90%;
-  margin: 50px auto;
-}
-
-/* Main card */
-
-.ticketForm {
-  background: #111;
-  padding: 50px;
-  border-radius: 30px;
-  max-width: 1200px;
-  margin: auto;
-}
-
-/* Title */
-
-.ticketForm h1 {
-  color: #6ba368;
-  margin-bottom: 40px;
-  font-size: 3rem;
-}
-
-/* Stats */
-
-.adminStats {
-  background: #1b1b1b;
-  padding: 20px;
-  border-radius: 14px;
-  margin-bottom: 30px;
-  color: white;
-  font-size: 1.2rem;
-}
-
-.adminStats strong {
-  color: #6ba368;
-}
-
-/* Table */
-
-table {
-  width: 100%;
-  border-collapse: collapse;
-  color: white;
-}
-
-/* Header */
-
-th {
-  background: #1b1b1b;
-  color: #6ba368;
-  text-align: left;
-  padding: 20px;
-}
-
-/* Cells */
-
-td {
-  padding: 20px;
-  border-bottom: 1px solid #333;
-}
-
-/* Hover */
-
-tr:hover {
-  background: rgba(255, 255, 255, 0.03);
-}
-
-/* Buttons */
-
-.actionBtn {
-  display: inline-block;
-  padding: 10px 16px;
-  background: #6ba368;
-  color: white;
-  border-radius: 10px;
-  text-decoration: none;
-  transition: 0.2s;
-  margin-right: 10px;
-}
-
-.actionBtn:hover {
-  background: #547f52;
-}
-
-/* Delete */
-
-.deleteBtn {
-  background: rgb(170, 50, 50);
-}
-
-.deleteBtn:hover {
-  background: rgb(130, 40, 40);
-}
-
-/* Mobile */
-
-@media (max-width: 700px) {
-  table,
-  thead,
-  tbody,
-  tr,
-  th,
-  td {
-    display: block;
+    width: 90%;
+    margin: 50px auto;
   }
-
-  th {
-    display: none;
+  
+  
+  /* Hoofdkaart */
+  
+  .ticketForm {
+    background: #111;
+    padding: 50px;
+    border-radius: 30px;
+    max-width: 1200px;
+    margin: auto;
   }
-
-  td {
+  
+  
+  /* Titel */
+  
+  .ticketForm h1 {
+    color: #6ba368;
+    margin-bottom: 40px;
+    font-size: 3rem;
+    text-align: center;
+  }
+  
+  
+  /* Statistieken */
+  
+  .adminStats {
     background: #1b1b1b;
-    margin-bottom: 10px;
-    border-radius: 10px;
+    padding: 20px;
+    border-radius: 14px;
+    margin-bottom: 30px;
+    color: white;
+    font-size: 1.2rem;
   }
-}
+  
+  
+  .adminStats strong {
+    color: #6ba368;
+  }
+  
+  
+  
+  /* Tabel */
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    color: white;
+  }
+  
+  
+  /* Tabelkop */
+  
+  th {
+    background: #1b1b1b;
+    color: #6ba368;
+    text-align: left;
+    padding: 20px;
+  }
+  
+  
+  /* Tabelcellen */
+  
+  td {
+    padding: 20px;
+    border-bottom: 1px solid #333;
+  }
+  
+  
+  /* Hover effect */
+  
+  tr:hover {
+    background: rgba(255,255,255,.03);
+  }
+  
+  
+  
+  /* Knoppen */
+  
+  .actionBtn {
+    display: inline-block;
+    padding: 10px 16px;
+    background: #6ba368;
+    color: white;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: .2s;
+    margin-right: 10px;
+    margin-bottom: 10px;
+  }
+  
+  
+  .actionBtn:hover {
+    background: #547f52;
+  }
+  
+  
+  /* Verwijder knop */
+  
+  .deleteBtn {
+    background: rgb(170,50,50);
+  }
+  
+  
+  .deleteBtn:hover {
+    background: rgb(130,40,40);
+  }
+  
+  
+  
+  /* Tablet */
+  
+  @media(max-width:900px){
+  
+    .ticketForm {
+      padding: 35px;
+    }
+  
+  }
+  
+  
+  
+  /* Mobiel */
+  
+  @media(max-width:700px){
+  
+    .formContainer {
+      width: 95%;
+    }
+  
+  
+    .ticketForm {
+      padding: 25px;
+      border-radius: 20px;
+    }
+  
+  
+    .ticketForm h1 {
+      font-size: 2rem;
+    }
+  
+  
+    table,
+    thead,
+    tbody,
+    tr,
+    td {
+      display: block;
+      width: 100%;
+    }
+  
+  
+    /* Verberg tabelkop */
+  
+    thead {
+      display: none;
+    }
+  
+  
+    /* Maak rijen kaarten */
+  
+    tr {
+      background: #1b1b1b;
+      border-radius: 14px;
+      margin-bottom: 20px;
+      padding: 10px;
+    }
+  
+  
+    td {
+      border: none;
+      padding: 12px 10px;
+    }
+  
+  
+    /* Knoppen onder elkaar */
+  
+    .actionBtn {
+      display: block;
+      width: 100%;
+      text-align: center;
+      margin: 10px 0;
+    }
+  
+    .adminStats {
+      font-size: 1rem;
+    }
+  
+  }
