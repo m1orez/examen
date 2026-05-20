@@ -13,7 +13,7 @@ body {
   background-color: black;
 }
 
-/* Navigatiebalk */
+/* Navigatie */
 
 nav {
   position: sticky;
@@ -75,16 +75,18 @@ nav a:hover {
   padding-bottom: 4px;
 }
 
-/* Hamburger menu */
+/* Hamburger */
 
 #hamburger {
   display: none;
+
   background: none;
   border: none;
+
   color: white;
   font-size: 2rem;
+
   cursor: pointer;
-  margin-left: auto;
 }
 
 /* Tablet */
@@ -94,42 +96,53 @@ nav a:hover {
     padding: 20px 30px;
   }
 
-  .navLinks {
-    gap: 15px;
-  }
-
   nav a {
     font-size: 1rem;
+  }
+
+  .navLinks {
+    gap: 15px;
   }
 }
 
 /* Mobiel */
-
 @media (max-width: 700px) {
   nav {
+    justify-content: center;
     padding: 20px;
   }
 
+  /* Hamburger gecentreerd */
   #hamburger {
-    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    font-size: 2rem;
+    width: 50px;
+    height: 50px;
   }
 
   /* Verberg menu standaard */
 
   .navLinks {
     display: none;
+
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
-    position: absolute;
-    top: 90px;
-    right: 20px;
+    position: fixed;
 
-    width: 250px;
-    padding: 20px;
-    gap: 20px;
+    top: 100px;
+    left: 0;
 
-    background: rgba(0, 0, 0, 0.95);
-    border-radius: 20px;
+    width: 100%;
+    padding: 40px 20px;
+
+    background: rgba(0, 0, 0, 0.97);
+
+    gap: 30px;
   }
 
   /* Open menu */
@@ -138,32 +151,18 @@ nav a:hover {
     display: flex;
   }
 
-  /* Knoppen volle breedte */
+  /* Links centreren */
 
-  .navButtons {
+  .navLinks a {
     width: 100%;
     text-align: center;
-  }
-}
-
-/* Kleine telefoons */
-
-@media (max-width: 400px) {
-  nav {
-    width: 98%;
-    padding: 15px;
+    font-size: 1.2rem;
   }
 
-  .navLinks {
-    width: 220px;
-    right: 10px;
-  }
+  /* Buttons volle breedte */
 
-  nav a {
-    font-size: 0.95rem;
-  }
-
-  #hamburger {
-    font-size: 1.8rem;
+  .navButtons {
+    width: 80%;
+    text-align: center;
   }
 }

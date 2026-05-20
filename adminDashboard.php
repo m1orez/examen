@@ -22,7 +22,7 @@ $users = mysqli_query($conn, "SELECT * FROM inschrijvingen");
 ?>
 
 <!DOCTYPE html>
-<html lang="nl">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">

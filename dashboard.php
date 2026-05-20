@@ -23,7 +23,7 @@ if (!$user) {
 ?>
 
 <!DOCTYPE html>
-<html lang="eng">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">

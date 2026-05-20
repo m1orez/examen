@@ -1,3 +1,14 @@
+<?php
+    session_start();
+    require_once "./script/config.php";
+
+    /* Aantal inschrijvingen */
+
+    $countQuery = mysqli_query($conn, "SELECT COUNT(*) AS totaal FROM inschrijvingen");
+    $count = mysqli_fetch_assoc($countQuery);
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,19 +21,20 @@
     <!-- pagina specifieke styling -->
     <link rel="stylesheet" href="./styles/inschrijven_login.css" />
 </head>
+
 <body>
-<nav>
-    <button id="hamburger">
-      ☰
-    </button>
-    <div class="navLinks">
-      <a href="./index.php">Home</a>
-      <a href="./info.php">Informatie</a>
-      <a class="navButtons" href="./inschrijven.php">Tickets</a>
-      <a class="navButtons" href="./login.php">Inloggen
-      </a>
-    </div>
-  </nav>
+    <nav>
+        <button id="hamburger">
+            ☰
+        </button>
+        <div class="navLinks">
+            <a href="./index.php">Home</a>
+            <a href="./info.php">Informatie</a>
+            <a class="navButtons" href="./inschrijven.php">Tickets</a>
+            <a class="navButtons" href="./login.php">Inloggen
+            </a>
+        </div>
+    </nav>
     <!-- Formulier container -->
     <section class="formContainer">
         <form class="ticketForm" action="./script/insert.php" method="POST">
@@ -48,6 +60,9 @@
 
             <input type="password" name="wachtwoord" placeholder="Wachtwoord" required>
             <button type="submit">Account aanmaken</button>
+            <p>
+            <?= $count["totaal"] ?>/1000 inschrijvingen
+            </p>
             <p id="adminLogin">
                 Heb je al een account?
                 <a href="login.php">
@@ -56,5 +71,6 @@
             </p>
         </form>
 </body>
-    <script src="./script/nav.js"></script>
+<script src="./script/nav.js"></script>
+
 </html>

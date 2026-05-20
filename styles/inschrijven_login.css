@@ -14,6 +14,11 @@ body {
   margin: 0;
 }
 
+p {
+  color: white;
+  text-align: center;
+}
+
 /* Container */
 .formContainer {
   width: 90%;
