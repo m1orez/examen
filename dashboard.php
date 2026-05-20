@@ -35,6 +35,9 @@ if (!$user) {
 </head>
 
 <body>
+    <nav>
+        <a href="./index.php">Home</a>
+    </nav>
     <section class="formContainer">
         <form id="dashboardForm" class="ticketForm" method="POST" action="./script/dashboard_process.php">
             <h1>Mijn gegevens</h1>

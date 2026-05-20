@@ -26,13 +26,16 @@ $users = mysqli_query(
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard</title>
+    <title>WK de Kuip | Admin dashboard</title>
 
     <link rel="stylesheet" href="./styles/general.css">
     <link rel="stylesheet" href="./styles/adminDashboard.css">
 </head>
 
 <body>
+    <nav>
+        <a href="./index.php">Home</a>
+    </nav>
     <section class="formContainer">
         <div class="ticketForm">
             <h1>Admin panel</h1>
@@ -42,12 +45,8 @@ $users = mysqli_query(
                     <?= $count["totaal"] ?>/1000
                 </strong>
             </div>
-
-
             <table>
-
                 <thead>
-
                     <tr>
                         <th>Naam</th>
                         <th>Email</th>
@@ -69,7 +68,7 @@ $users = mysqli_query(
                                 <?= htmlspecialchars($user["Telefoonnummer"]) ?>
                             </td>
                             <td>
-                                <a class="actionBtn" href="edit_user.php?id=<?= $user["inschrijving_ID"] ?>">Bewerk</a>
+                                <a class="actionBtn" href="editUser.php?id=<?= $user["inschrijving_ID"] ?>">Bewerk</a>
                                 <a class="actionBtn deleteBtn"
                                     href="./script/delete_user.php?id=<?= $user["inschrijving_ID"] ?>"
                                     onclick="return confirm('Weet je het zeker?')">Verwijder</a>
