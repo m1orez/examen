@@ -17,7 +17,7 @@
         <a class="navButtons" href="./login.php">Inloggen</a>
     </nav>
     <section class="formContainer">
-        <form action="login_process.php" method="POST"       class="ticketForm">
+        <form action="./script/login_process.php" method="POST" class="ticketForm">
             <h1>Log in</h1>
             <input type="text" name="email" placeholder="Email" required>
             <input type="password" name="wachtwoord" placeholder="Wachtwoord" required>

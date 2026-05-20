@@ -1,0 +1,145 @@
+.readonly {
+  background: #eee;
+  cursor: not-allowed;
+}
+
+.hidden {
+  display: none;
+}
+/* Container */
+
+.formContainer {
+  width: 90%;
+  margin: 50px auto;
+}
+
+/* Form */
+
+.ticketForm {
+  background: #111;
+  padding: 50px;
+  border-radius: 30px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+/* Title */
+
+.ticketForm h1 {
+  color: #6ba368;
+  margin-bottom: 40px;
+  font-size: 3rem;
+}
+
+/* 2 columns */
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+/* Inputs */
+
+input,
+select {
+  width: 100%;
+  padding: 18px;
+  margin-bottom: 20px;
+  background: #1b1b1b;
+  border: none;
+  border-radius: 14px;
+  color: white;
+  font-size: 1rem;
+}
+
+/* Focus */
+
+input:focus,
+select:focus {
+  outline: 2px solid #6ba368;
+}
+
+/* Readonly fields */
+
+input[readonly] {
+  background: #242424;
+  color: rgb(200, 200, 200);
+  cursor: not-allowed;
+}
+
+/* Locked forever */
+
+.readonly {
+  background: #2b2b2b !important;
+  border-left: 5px solid #6ba368;
+}
+
+/* Buttons */
+button {
+  width: 100%;
+  padding: 20px;
+  background: #6ba368;
+  border: none;
+  border-radius: 14px;
+  color: white;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+/* Hover */
+button:hover {
+  background: #547f52;
+}
+
+/* opsla knop */
+.hidden {
+  display: none;
+}
+
+/* Success bericht */
+.success {
+  background: rgba(107, 163, 104, 0.2);
+  border: 1px solid #6ba368;
+  color: #6ba368;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 25px;
+}
+
+/* Dashboard labels */
+
+.ticketForm label {
+  display: block;
+  margin-bottom: 8px;
+  color: rgb(180, 180, 180);
+}
+
+/* Admin login */
+
+#adminLogin {
+  color: rgb(143, 143, 143);
+}
+
+/* Mobile */
+
+@media (max-width: 700px) {
+  .row {
+    grid-template-columns: 1fr;
+  }
+
+  .ticketForm {
+    padding: 30px;
+  }
+
+  .ticketForm h1 {
+    font-size: 2rem;
+  }
+}
+#removeAccount {
+    background:#a33;
+}

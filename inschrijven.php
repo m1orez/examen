@@ -10,6 +10,7 @@
     <!-- pagina specifieke styling -->
     <link rel="stylesheet" href="./styles/inschrijven_login.css" />
 </head>
+
 <body>
     <nav>
         <a href="./index.php">Home</a>
@@ -20,7 +21,7 @@
     <!-- Formulier container -->
     <section class="formContainer">
         <!-- Inschrijfformulier -->
-        <form action="insert.php" method="POST" class="ticketForm">
+        <form action="./script/insert.php" method="POST" class="ticketForm">
             <h1>Inschrijven</h1>
             <div class="row">
                 <!-- naam -->
@@ -53,4 +54,5 @@
     </section>
     </section>
 </body>
+
 </html>
