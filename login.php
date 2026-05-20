@@ -17,11 +17,11 @@
         <a class="navButtons" href="./login.php">Inloggen</a>
     </nav>
     <section class="formContainer">
-        <form action=""class="ticketForm">
+        <form action="login_process.php" method="POST"       class="ticketForm">
             <h1>Log in</h1>
             <input type="text" name="email" placeholder="Email" required>
             <input type="password" name="wachtwoord" placeholder="Wachtwoord" required>
-            <button>Log in</button>
+            <button type="submit">Log in</button>
             <a id="adminLogin" href="./AdminLogin.php">Admin login</a>
         </form>
     </section>
